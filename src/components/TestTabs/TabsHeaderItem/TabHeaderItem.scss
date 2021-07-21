@@ -1,0 +1,65 @@
+@mixin corner {
+   width: 10px;
+   transform: rotate(180deg);
+}
+
+@mixin with-radius {
+   background-color: transparent;
+   height: 20px;
+   border-top-left-radius: 10px;
+   box-shadow: 0 -10px 0 0 #42c987;
+}
+
+.tab-header-item__container {
+
+   height: 70px;
+   width: 100%;
+
+   display: flex;
+   align-items: flex-end;
+
+   background-color: transparent;
+   font-family: Arial, Helvetica, sans-serif;
+   overflow: hidden;
+
+   & > * {
+      cursor: pointer;
+   }
+
+   .tab-header-item__content-container {
+      height: 100%;
+      flex: 1;
+   
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   
+      background-color: #8bd8bd;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      .tab-header-item__title {
+         color: #fff;
+      }
+
+      &--active {
+         background-color: #42c987;
+      }
+   }
+
+   .tab-header-item__left-corner {
+      @include corner();
+      &--active {
+         @include with-radius();
+      }
+   }
+
+   .tab-header-item__right-corner {
+      @include corner();
+      &--active {
+         @include with-radius();
+         transform: scale(1, -1);
+      }
+   }
+}
+
