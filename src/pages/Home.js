@@ -50,6 +50,9 @@ const Home = () => {
    const Hello = () => console.log('Hello');
    
    const [modalActive, setModalActive] = useState(false);
+   function closeModal() {
+      setModalActive(!modalActive)
+   }
 
 
    return (
@@ -73,7 +76,7 @@ const Home = () => {
       </section>
 
       <ModalTest active={modalActive} setActive={setModalActive}>
-         <PromRadarModal />
+         <PromRadarModal closeModal={closeModal}/>
       </ModalTest>
 
     </main>
